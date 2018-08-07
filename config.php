@@ -1,5 +1,5 @@
 <?php return array (
-  'name' => '东亚新闻',
+  'name' => '东新模板',
   'author' => 'Yuan',
   'dirname' => 'dynews_temp',
   'homepage' => 'http://www.phpcms.cn/',
@@ -48,5 +48,5 @@
       'wap' => '手机门户',
       'yp' => '黄页模板',
     ),
-  )
+  ),
 );?>

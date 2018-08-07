@@ -114,6 +114,7 @@
 			<div class="menu1 .container-fluid">
 				<div class="menuState row">
 					<ul>
+					    {php $otherNews }
 						{pc:content  action="category" siteid="1" catid="0" num="12"}
 						{loop $data $v}
 						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -121,6 +122,9 @@
 								<a target="_blank" href="{$v['url']}">{$v['catname']}</a>
 							</li>
 						</div>
+						{if $v['catid']==20}
+						{php $otherNews=$v['url']}
+						{/if}
 						{/loop}
 						{/pc}
 					<ul>
@@ -130,15 +134,15 @@
 			<div class="menu2 .container-fluid">
 				<div class="menuType row">
 					<ul>
-					    {pc:content  action="category" siteid="1" catid="0" num="18"}
+					    {pc:content  action="category" siteid="1" catid="99" num="6"}
 						{loop $data $v}
-						{if $n>=13}
+						
 						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
 							<li>
 								<a target="_blank" href="{$v['url']}">{$v['catname']}</a>
 							</li>
 						</div>
-						{/if}
+						
 						{/loop}
 						{/pc}
 					<ul>
