@@ -115,6 +115,8 @@
 				<div class="menuState row">
 					<ul>
 					    {php $otherNews }
+						{php $militaryNews }
+						{php $techNews }
 						{pc:content  action="category" siteid="1" catid="0" num="12"}
 						{loop $data $v}
 						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
@@ -124,6 +126,12 @@
 						</div>
 						{if $v['catid']==20}
 						{php $otherNews=$v['url']}
+						{/if}
+						{if $v['catid']==23}
+						{php $militaryNews=$v['url']}
+						{/if}
+						{if $v['catid']==25}
+						{php $techNews=$v['url']}
 						{/if}
 						{/loop}
 						{/pc}
