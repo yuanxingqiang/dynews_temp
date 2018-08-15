@@ -14,154 +14,32 @@
 						
 						<div class="row" id="globalNews">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
+							{pc:content action="lists" catid="$catid" num="11" order="id DESC" page="$page"}
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 readTittle">
-									全球播报
+									{$catname}
 							</div >
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
 							<ul class="list-unstyled">
+							    {loop $data $r}
 								<li>
 									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
+										<a href="{$r['url']}"><img class="img-responsive" src="{thumb($r['thumb'],100,60)}" /></a>
 									</div>
 									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
+										<a href="{$r['url']}" target="_blank">
+											{$r['title']}
 										</a>
 									</div>
 								</li>
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
+								{/loop}
 							</ul>
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
 							<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"></div>
 							<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-								<a href="">首页</a>
-								<a href="">1</a>
-								<a href="">2</a>
-								<a href="">3</a>
-								<a href="">4</a>
-								<a href="">5</a>
-								...
-								<a href="">尾页</a>
+								{$pages}
 							</div>
+							{/pc}
 						</div>
 						
 
