@@ -1,4 +1,167 @@
-{template "content","header"}
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9) | !(IE)]><!-->
+<html class="not-ie" lang="zh-CN">
+<!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+        <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+        <title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+		<meta name="keywords" content="{$SEO['keyword']}">
+		<meta name="description" content="{$SEO['description']}">
+		
+		<!-- phpcms自带样式 -->
+		<link href="{CSS_PATH}reset.css" rel="stylesheet" type="text/css" />
+        <link href="{CSS_PATH}default_blue.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap -->
+        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{WEB_PATH}statics/dynews/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="{WEB_PATH}statics/dynews/css/jquery.hiSlider.css">
+		<link href="{WEB_PATH}statics/dynews/css/base.css" rel="stylesheet">
+		
+
+        <!-- HTML5 shim 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+        <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+        <!--[if lt IE 9]>
+            <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+            <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div id="body">
+			<!-- 网站头部分开始 -->
+			<div class="header">
+				<div class=".container-fluid">
+					<div class="row" id="top">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="topCenter">
+							<!-- 网站logo -->
+							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="logo">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 logoTop"></div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<a href="./index.php">
+										<img class="img-responsive" src="./dynews/img/dynewslogo.png" />
+									</a>
+								</div>
+							</div>
+							
+							<!-- 天气 -->
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="weather">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 weatherTop"></div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+									<div class="col-xs-5 col-sm-5 col-md-5 col-lg-5" id="cityName">哈尔滨</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="weatherIcon">
+										<img src="./dynews/img/weather/weathy_01.png">
+									</div>
+									<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="weatherInfo">
+										30℃
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 weatherTop"></div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="dateAndTime">
+									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+										2018年6月21日 星期四
+									</div>
+								</div>
+							</div>
+							
+							<!-- 检索 -->
+							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" id="find">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search"></div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search">
+									<form action="{APP_PATH}index.php" method="get" target="_blank">
+										<div class="input-group">
+											<input type="hidden" name="m" value="search"/>
+											<input type="hidden" name="c" value="index"/>
+											<input type="hidden" name="a" value="init"/>
+											<input type="hidden" name="typeid" value="{$typeid}" id="typeid"/>
+											<input type="hidden" name="siteid" value="{$siteid}" id="siteid"/>
+											<input type="text" class="form-control text" name="q" id="q" placeholder="Search for...">
+											<span class="input-group-btn">
+												<button class="btn btn-default" type="submit">检索</button>
+											</span>
+										</div><!-- /input-group -->
+									</form>
+								</div>
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 search"></div>
+							</div>
+							
+							<!-- 微博微信 -->
+							
+
+							<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" id="wei">
+								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="weiTop"></div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="weibo">
+									<a href="">
+										<img class="img-responsive" src="./dynews/img/weibo.png" />
+									</a>
+									<button type="button" class="btn btn-primary" id="register">注册</button>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" id="weixin">
+									<a href="">
+										<img class="img-responsive" src="./dynews/img/weixin.png" />
+									</a>
+									<button type="button" class="btn btn-info" id="login">登录</button>
+								</div>
+							</div>
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 网站头部结束 -->				
+							
+			<!-- 网站菜单开始 -->		
+			<div class="menu1 .container-fluid">
+				<div class="menuState row">
+					<ul>
+					    {php $otherNews }
+						{php $militaryNews }
+						{php $techNews }
+						{pc:content  action="category" siteid="1" catid="0" num="12"}
+						{loop $data $v}
+						<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+							<li>
+								<a target="_blank" href="{$v['url']}">{$v['catname']}</a>
+							</li>
+						</div>
+						{if $v['catid']==20}
+						{php $otherNews=$v['url']}
+						{/if}
+						{if $v['catid']==23}
+						{php $militaryNews=$v['url']}
+						{/if}
+						{if $v['catid']==25}
+						{php $techNews=$v['url']}
+						{/if}
+						{/loop}
+						{/pc}
+					<ul>
+				</div>
+			</div>
+			
+			<div class="menu2 .container-fluid">
+				<div class="menuType row">
+					<ul>
+					    {pc:content  action="category" siteid="1" catid="99" num="6"}
+						{loop $data $v}
+						
+						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+							<li>
+								<a target="_blank" href="{$v['url']}">{$v['catname']}</a>
+							</li>
+						</div>
+						
+						{/loop}
+						{/pc}
+					<ul>
+				</div>
+			</div>
+			<!-- 菜单结束 -->
 			
 			<div class="nullRow"></div>
 	
@@ -10,506 +173,96 @@
 					<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 leftArea">
 						
 						
-						<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div></div>
-						
-						<div class="row" id="globalNews">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 readTittle">
-									全球播报
-							</div >
-							<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-									<a href="">更多>>></a>
-							</div >
-							<hr/>
-							<ul class="list-unstyled">
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic1">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 globalNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為　群馬県教委が懲戒免職
-										</a>
-									</div>
-								</li>
+						<div class="crumbs"><a href="{siteurl($siteid)}">首页</a><span> &gt; </span>{catpos($catid)} 正文</div>
+						<div id="Article">
+							<h1>{$title}<br />
+				                <span>{$inputtime}&nbsp;&nbsp;&nbsp;来源：{$copyfrom}&nbsp;&nbsp;&nbsp;评论：<a href="#comment_iframe" id="comment">0</a> 点击：</span><span id="hits"></span>
+						    </h1>
+							{if $description}<div class="summary" >{$description}</div>{/if}
+							<div class="content">
+							{if $allow_visitor==1}
+								{$content}
+								<!--内容关联投票-->
+								{if $voteid}<script language="javascript" src="{APP_PATH}index.php?m=vote&c=index&a=show&action=js&subjectid={$voteid}&type=2"></script>{/if}
+								
+							{else}
+								<CENTER><a href="{APP_PATH}index.php?m=content&c=readpoint&allow_visitor={$allow_visitor}"><font color="red">阅读此信息需要您支付 <B><I>{$readpoint} {if $paytype}元{else}点{/if}</I></B>，点击这里支付</font></a></CENTER>
+							{/if}
+							</div>
+				            {if $titles}
+							<fieldset>
+								<legend class="f14">本文导航</legend><ul class="list blue row-2">
+							{loop $titles $r}
+								<li>{$n}、<a href="{$r[url]}">{$r[title]}</a></li>
+							{/loop}
 							</ul>
-						</div>
+							</fieldset>
+				            {/if}
+							<div id="pages" class="text-c">{$pages}</div>
+							<p style="margin-bottom:10px">
+							<strong>相关热词搜索：</strong>{loop $keywords $keyword}<a href="{APP_PATH}index.php?m=content&c=tag&a=lists&tag={urlencode($keyword)}" class="blue">{$keyword}</a> 	{/loop}
+							</p>
+							<p class="f14">
+								<strong>上一篇：</strong><a href="{$previous_page[url]}">{$previous_page[title]}</a><br />
+								<strong>下一篇：</strong><a href="{$next_page[url]}">{$next_page[title]}</a>
+							</p>
+							<!--
+						    
+							    相关阅读
+							
+							-->
+						    <div class="bk15"></div>
+							{if module_exists('mood')}<script type="text/javascript" src="{APP_PATH}index.php?m=mood&c=index&a=init&id={id_encode($catid,$id,$siteid)}"></script>{/if}
+							
+                        </div>
+						
+						<div class="Article-Tool">
+						  分享到：
+						  <img src="http://v.t.qq.com/share/images/s/weiboicon16.png" style="padding-bottom:3px;" onclick="postToWb();" class="cu" title="分享到腾讯微博"/><script type="text/javascript">
+					function postToWb(){
+						var _t = encodeURI(document.title);
+						var _url = encodeURIComponent(document.location);
+						var _appkey = encodeURI("cba3558104094dbaa4148d8caa436a0b");
+						var _pic = encodeURI('{$thumb}');
+						var _site = '';
+						var _u = 'http://v.t.qq.com/share/share.php?url='+_url+'&appkey='+_appkey+'&site='+_site+'&pic='+_pic+'&title='+_t;
+						window.open( _u,'', 'width=700, height=680, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, location=yes, resizable=no, status=no' );
+					}
+				</script>
+						  <script type="text/javascript">document.write('<a href="http://v.t.sina.com.cn/share/share.php?url='+encodeURIComponent(location.href)+'&appkey=3172366919&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到新浪微博" class="t1" target="_blank">&nbsp;</a>');</script>
+						  <script type="text/javascript">document.write('<a href="http://www.douban.com/recommend/?url='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到豆瓣" class="t2" target="_blank">&nbsp;</a>');</script>
+						  <script type="text/javascript">document.write('<a href="http://share.renren.com/share/buttonshare.do?link='+encodeURIComponent(location.href)+'&title='+encodeURIComponent('{new_addslashes($title)}')+'" title="分享到人人" class="t3" target="_blank">&nbsp;</a>');</script>
+						  <script type="text/javascript">document.write('<a href="http://www.kaixin001.com/repaste/share.php?rtitle='+encodeURIComponent('{new_addslashes($title)}')+'&rurl='+encodeURIComponent(location.href)+'&rcontent=" title="分享到开心网" class="t4" target="_blank">&nbsp;</a>');</script>
+						  <script type="text/javascript">document.write('<a href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url='+encodeURIComponent(location.href)+'" title="分享到QQ空间" class="t5" target="_blank">&nbsp;</a>');</script>
+					  
+					  <span id='favorite'>
+						<a href="javascript:;" onclick="add_favorite('{addslashes($title)}');" class="t6">收藏</a>
+					  </span>
 
+					  </div>
+					  <div class="bk10"></div>
+					  {if $allow_comment && module_exists('comment')}
+					  <iframe src="{APP_PATH}index.php?m=comment&c=index&a=init&commentid={id_encode("content_$catid",$id,$siteid)}&iframe=1" width="100%" height="100%" id="comment_iframe" frameborder="0" scrolling="no"></iframe>
+					  <div class="box">
+								<h5>评论排行</h5>
+								 {pc:comment action="bang" siteid="$siteid" cache="3600"}
+								<ul class="content list blue f14 row-2">
+								{loop $data $r}
+									<li>·<a href="{$r[url]}" target="_blank">{str_cut($r[title], 40)}</a><span>({$r[total]})</span></li>
+									{/loop}
+								</ul>
+								{/pc}
+					  </div>
+						{/if}
 					</div>
 					<!-- 左边内容部分结束 -->
-					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 rightArea">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-						<div class="row" id="column">
-							<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									本站专栏
-							</div >
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<a href="">更多>>></a>
-							</div >
-							<hr/>
-							<ul class="list-unstyled">
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						
-						<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div></div>
-							
-						<div class="row" id="ad">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 readTittle">
-								<img class="img-responsive" src="./dynews/img/twcad.jpg" />
-							</div>
-						</div>
-						
-						<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div></div>
-						
-						<div class="row" id="pos">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									科普专区
-							</div >
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<a href="">更多>>></a>
-							</div >
-							<hr/>
-							<ul class="list-unstyled">
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						
-						<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div></div>
-						
-						<div class="row" id="create">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									精品原创
-							</div >
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<a href="">更多>>></a>
-							</div >
-							<hr/>
-							<ul class="list-unstyled">
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<a href=""><img class="img-responsive" src="./dynews/img/newslist.jpeg" /></a>
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-								<li>
-									<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 smallPic">
-										<img class="img-responsive" src="./dynews/img/newslist.jpeg" />
-									</div>
-									<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 hotNewsTittle">
-										<a href="">
-											女性教諭→元教え子の男子高校生にわいせつ行為...
-										</a>
-									</div>
-								</li>
-							</ul>
-						</div>
-						
-						<div class="row"><div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div></div>
-						
-						<div class="row" id="pe">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									赛事直播
-							</div >
-							<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-									<a href="">更多>>></a>
-							</div >
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									世界杯
-								</div >
-								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<a href="">more>></a>
-								</div>
-								<ul class="list-unstyled">
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												西班牙 vs 葡萄牙
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												3:3
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												西班牙 vs 葡萄牙
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												3:3
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												西班牙 vs 葡萄牙
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												3:3
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												西班牙 vs 葡萄牙
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												3:3
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												西班牙 vs 葡萄牙
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												3:3
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									NBA
-								</div >
-								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<a href="">more>></a>
-								</div>
-								<ul class="list-unstyled">
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												勇士 vs 骑士
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												109:95
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												勇士 vs 骑士
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												109:95
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												勇士 vs 骑士
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												109:95
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												勇士 vs 骑士
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												109:95
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												勇士 vs 骑士
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												109:95
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									中超
-								</div >
-								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<a href="">more>></a>
-								</div>
-								<ul class="list-unstyled">
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												国安 vs 申花
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												2:1
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												国安 vs 申花
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												2:1
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												国安 vs 申花
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												2:1
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												国安 vs 申花
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												2:1
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												国安 vs 申花
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												2:1
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 nullRow"></div>
-							
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 readTittle">
-									CBA
-								</div >
-								<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-										<a href="">more>></a>
-								</div>
-								<ul class="list-unstyled">
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												辽宁 vs 广厦
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												99:100
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												辽宁 vs 广厦
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												99:100
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												辽宁 vs 广厦
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												99:100
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												辽宁 vs 广厦
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												99:100
-											</a>
-										</div>
-									</li>
-									<li>
-										<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
-											<a href="">
-												辽宁 vs 广厦
-											</a>
-										</div>
-										<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-											<a href="">
-												99:100
-											</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-							
-						</div>
-					</div>
+					
+					
+					<!-- 右边内容部分开始 -->
+					
+					{template "content","right"}
+					
+					<!-- 右边内容结束 -->
 				</div>
 			</div>
 			<!-- 网站展示部分结束 -->
